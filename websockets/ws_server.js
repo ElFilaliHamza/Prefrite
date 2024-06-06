@@ -146,19 +146,29 @@ function WS_Server(session) {
     this.listen = function (server) {
         const { io } = this;
         io.listen(server);
+        console.log('WebSocket server is listening on ');
         io.use(sharedsession(session, {
             autoSave: true
         }));
         io.on('connection', (socket) => {
             const session = socket.handshake.session;
+            // console.log('New WebSocket connection');
             const superadmin = session.superadmin;
             if (superadmin) {
+                console.log('SuperAdmin connected');
                 return superHandler(socket, superadmin);
             }
             const sellerId = session.sellerId;
             if (sellerId) {
+                // console.log('Seller connected');
                 return sellerHandler(socket, sellerId);
             }
+        });
+
+        // Add close event listener
+        io.on('close', () => {
+            console.log('WebSocket server is closing');
+            // Additional logic or cleanup can be added here
         });
     }
 }

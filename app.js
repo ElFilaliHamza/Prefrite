@@ -12,6 +12,7 @@ const magasinRouter = require('./modules/magasin/magasinRouter');
 const checkSession = require('./modules/global/checkSession');
 const login = require('./modules/global/login');
 const WS_Server = require('./websockets/ws_server');
+const cors = require('cors'); // Import cors
 
 const app = express();
 
@@ -48,16 +49,27 @@ const session = expressSession({
 app.use(session);
 
 
-/* const corsOptions = {
-    origin: /localhost/,    // reqexp will match all prefixes
+// const corsOptions = {
+//     origin: /localhost/,    // reqexp will match all prefixes
+//     methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
+//     credentials: true,                // required to pass
+//     allowedHeaders: "Content-Type, Authorization, X-Requested-With",
+// }
+
+
+const corsOptions = {
+    origin: ['http://localhost:3000', '/localhost/'], // Adjust according to your front-end URL
     methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
-    credentials: true,                // required to pass
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     allowedHeaders: "Content-Type, Authorization, X-Requested-With",
-}
+};
 // intercept pre-flight check for all routes
-app.use(cors(corsOptions)) */
+app.use(cors(corsOptions)) 
+// new line
+app.options('*', cors(corsOptions));
 
 app.post('/session', checkSession);
+
 app.post('/login', login);
 
 app.use('/admin', adminRouter);
@@ -71,6 +83,7 @@ app.use('/magasin', magasinRouter);
 const server = http.createServer(app);
 
 server.listen(process.env.PORT || 80, () => {
+
     console.log(`Server Started at PORT: ${server.address().port}`);
 });
 

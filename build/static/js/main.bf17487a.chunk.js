@@ -4795,7 +4795,7 @@
                 r.a.createElement(
                   "div",
                   { className: "small-app-card" },
-                  r.a.createElement("span", null, "Commission: "),
+                  r.a.createElement("span", null, "My Commission: "),
                   "\xa0",
                   u.default.fn(0.02 * c.paid),
                   " DHS"
@@ -7101,6 +7101,7 @@
                       r.a.createElement("th", null, "Nom"),
                       r.a.createElement("th", null, "Qt Stocke"),
                       r.a.createElement("th", null, "Qt Alerte"),
+                      r.a.createElement("th", null, "Commision"),
                       r.a.createElement("th", null, "D\xe9pass\xe9")
                     )
                   ),
@@ -7291,6 +7292,7 @@
                   { _ref: o, ph: "Prix d'achat" },
                   { _ref: f, ph: "Qt Stocke" },
                   { _ref: E, ph: "Qt Alerte" },
+                  { _ref: E, ph: "Commission" },
                 ].map(function (e, t) {
                   return r.a.createElement(
                     "div",
@@ -7836,6 +7838,13 @@
                         {
                           title: "Prix Achat",
                           value: u.default.fn(s.article.prixAchat),
+                          ref: A,
+                          stateKey: "prixAchat",
+                          parse: parseFloat,
+                        },
+                        {
+                          title: "Commission",
+                          value: u.default.fn(s.article.commission),
                           ref: A,
                           stateKey: "prixAchat",
                           parse: parseFloat,
@@ -8867,7 +8876,7 @@
                     r.a.createElement(
                       "div",
                       { className: "super-content-item" },
-                      "Commission: ",
+                      "My 2 Commission: ",
                       v
                         ? r.a.createElement(
                             "span",
@@ -9190,7 +9199,7 @@
                         ),
                       },
                       {
-                        title: "Commission",
+                        title: "My 3 Commission",
                         value: r.a.createElement(
                           r.a.Fragment,
                           null,

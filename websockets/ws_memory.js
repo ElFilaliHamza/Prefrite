@@ -1,11 +1,11 @@
-const users = {
-    superUsers: {},
-    sellerUsers: {},
-    sellerUsersTime: {}
-};
+    const users = {
+        superUsers: {},
+        sellerUsers: {},
+        sellerUsersTime: {}
+    };
 
-const memory = {
-    users: users,
-};
+    const memory = {
+        users: users,
+    };
 
-module.exports = memory;
+    module.exports = memory;

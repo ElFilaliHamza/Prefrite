@@ -1,5 +1,6 @@
 const checkSession = (req, res) => {
     let superadmin = req.session.superadmin;
+    console.log(req.session);
     if(superadmin){
         return res.send({
             logged: true,
