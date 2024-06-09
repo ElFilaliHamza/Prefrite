@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
 dotenv.config({ path: envFile });
 // Parse the ORIGIN environment variable
-const env_origins = process.env.ORIGIN ? process.env.ORIGIN.split(',') : [];
+const env_origins = process.env.IGNORE_ORIGINS ? process.env.IGNORE_ORIGINS.split(',') : [];
 
 
 const http = require('http');
