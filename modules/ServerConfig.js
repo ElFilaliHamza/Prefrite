@@ -2,7 +2,7 @@ const fs = require('fs');
 const appConfig_Server = JSON.parse(fs.readFileSync(__dirname + "/appConfig_Server.json").toString());
 
 module.exports = {
-    MONGO_URL: "mongodb://localhost:27017/" + appConfig_Server.DATABASE_NAME,
+    MONGO_URL: process.env.MONGO_URL_VAR + appConfig_Server.DATABASE_NAME,
     UPLOAD_PATH: process.cwd() + "/uploads/",
     NO_ACCESS: {
         access: false

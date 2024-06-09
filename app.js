@@ -1,8 +1,13 @@
+const dotenv = require('dotenv');
+
+// Load the correct .env file based on NODE_ENV
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
+dotenv.config({ path: envFile });
+
 const http = require('http');
 const express = require('express');
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
-
 const adminRouter = require('./modules/admin/adminRouter');
 const { MONGO_URL } = require('./modules/ServerConfig');
 const sellerRouter = require('./modules/seller/sellerRouter');
@@ -64,7 +69,7 @@ const corsOptions = {
     allowedHeaders: "Content-Type, Authorization, X-Requested-With",
 };
 // intercept pre-flight check for all routes
-app.use(cors(corsOptions)) 
+app.use(cors(corsOptions))
 // new line
 app.options('*', cors(corsOptions));
 
