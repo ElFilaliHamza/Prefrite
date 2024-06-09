@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.999103b0.chunk.css",
+    "main.js": "/static/js/main.bf17487a.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.2e3772cd.js",
+    "static/css/2.4ce393bd.chunk.css": "/static/css/2.4ce393bd.chunk.css",
+    "static/js/2.a6dd0980.chunk.js": "/static/js/2.a6dd0980.chunk.js",
+    "index.html": "/index.html",
+    "precache-manifest.97c95bc9a13730772ba9a078fad3b2a7.js": "/precache-manifest.97c95bc9a13730772ba9a078fad3b2a7.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.a6dd0980.chunk.js.LICENSE.txt": "/static/js/2.a6dd0980.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/GOTHIC.8917856b.TTF",
+    "static/media/VendeurInvoicePDF.css": "/static/media/bg.173c64a1.png",
+    "static/media/all.css": "/static/media/fa-solid-900.fb2f4531.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e3772cd.js",
+    "static/css/2.4ce393bd.chunk.css",
+    "static/js/2.a6dd0980.chunk.js",
+    "static/css/main.999103b0.chunk.css",
+    "static/js/main.bf17487a.chunk.js"
+  ]
+}
