@@ -3,6 +3,9 @@ const dotenv = require('dotenv');
 // Load the correct .env file based on NODE_ENV
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
 dotenv.config({ path: envFile });
+// Parse the ORIGIN environment variable
+const env_origins = process.env.ORIGIN ? process.env.ORIGIN.split(',') : [];
+
 
 const http = require('http');
 const express = require('express');
@@ -63,7 +66,7 @@ app.use(session);
 
 
 const corsOptions = {
-    origin: ['http://localhost:3000', '/localhost/'], // Adjust according to your front-end URL
+    origin: env_origins, // Adjust according to your front-end URL
     methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     allowedHeaders: "Content-Type, Authorization, X-Requested-With",
